@@ -1,10 +1,12 @@
+import rubiksparse
 
-r = 'red'
-b = 'blue'
-g = 'green'
-y = 'yellow'
-w = 'white'
-o = 'orange'
+
+r = 'r'
+b = 'b'
+g = 'g'
+y = 'y'
+w = 'w'
+o = 'o'
 cw = 1
 ccw = 0
 
@@ -21,7 +23,7 @@ adjacency = {
 class cube(object):
 
     def __init__(self):
-        self.faces= {}
+        self.faces= rubiksparse.parse()
 
     def rotate_adjacent(self, face, direction):
 
