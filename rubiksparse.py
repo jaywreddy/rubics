@@ -46,5 +46,3 @@ def parse():
     final =  {'y': yellow_face, 'b': blue_face, 'g': green_face, 'r': red_face , 'w': white_face, 'o': orange_face}
     return final
 
-
-print("Yellow Face:", yellow_face, "Blue Face:", blue_face, "Red Face:", red_face, "Green Face:", green_face, "Orange Face:", orange_face, "White Face:", white_face)

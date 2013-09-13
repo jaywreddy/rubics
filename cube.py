@@ -30,17 +30,17 @@ class cube(object):
         def extract_bottom((key, (x, y))):  #pulls out the bottom row w/respect to face
             adj_matrix = self.faces[key]
             if x ==1:
-                side = adj_matrix[:,y]
+                side = adj_matrix[:][y]
             if y ==1:
-                side = adj_matrix[x,:]
+                side = adj_matrix[x][:]
             return side[:]
 
-        adj = adjacency(face)[:]
+        adj = adjacency[face][:]
         if direction == ccw:
-            adj.reverse()
+            adj=adj[::-1]
 
 
-        sides = map(extract_bottom, adjacency(face))
+        sides = map(extract_bottom, adjacency[face])
         sides = sides[-1:]+sides[:-1]
 
 
@@ -49,9 +49,9 @@ class cube(object):
         def insert_bottom(((key, (x,y)), side)):
             adj_matrix = self.faces[key]
             if x ==1:
-                adj_matrix[:,y] = side
+                adj_matrix[:][y] = side
             if y ==1:
-                adj_matrix[x,:] = side
+                adj_matrix[x][:] = side
 
         map(insert_bottom, insert)
 
@@ -61,23 +61,27 @@ class cube(object):
         if direction == ccw:
             corners.reverse()
             sides.reverse()
-        last= matrix[corners[-1]]
+            (x,y)= corners[-1]
+        last= matrix[x][y]
         for corner in corners:
-            temp = matrix[corner]
-            matrix[corner]= last
+            (x,y)=corner
+            temp = matrix[x][y]
+            matrix[x][y]= last
             last = temp
 
-        temp = matrix[sides[-1]]
+            (x,y)= sides[-1]
+        temp = matrix[x][y]
         for side in sides:
-            temp = matrix[side]
-            matrix[side]= last
+            (x,y)= side
+            temp = matrix[x][y]
+            matrix[x][y]= last
             last = temp
 
 
 
     def rotate(self, face, direction):
         # first, rotate the array
-        self.matrix_rotate(self.faces[face])
+        self.matrix_rotate(self.faces[face], direction)
 
         # then, rotate all of the adjacent faces
         self.rotate_adjacent(face, direction)
