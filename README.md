@@ -1,14 +1,12 @@
 rubics
-======
 
 Rubics cube solver
 
 Sebastian Shanus Code:
-<<<<<<< HEAD
 Parsed the text from code.txt into 6 two-dimensional arrays (rubiksparse.py)
-=======
-Parsed code from text file into 6 2d arrays
 
 Jay Reddy Code:
 Wrote transformation functions to do a cube side rotation.
->>>>>>> bd1584654b469b847ada91ec2b60906886ba3b26
+
+Howard Chen
+I wrote the solve functions and the skeleton of our implementation of the solving algorithm.  Some methods are only partially complete but represent how they would be finished.  The algorithm to solve it does it by solving the first two layers, then the top face, then the final top layer.
