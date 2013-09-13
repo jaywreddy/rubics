@@ -4,4 +4,4 @@ rubics
 Rubics cube solver
 
 Sebastian Shanus Code:
-Parsed code from text file into 6 2d arrays
+Parsed the text from code.txt into 6 two-dimensional arrays (rubiksparse.py)
